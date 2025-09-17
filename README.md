@@ -7,7 +7,7 @@ Full-stack приложение на TypeScript с Next.js и Express.js.
 ### Development
 
 ```bash
-# 1. Поднять PostgreSQL
+# 1. Поднять PostgreSQL (если SQLite можно не поднимать, по дефолту SQLite)
 cd ../
 .\scripts\utils\start-postgres.bat
 
@@ -49,4 +49,5 @@ FERCStroy/
 ## 📖 Подробная документация
 
 - [Backend README](server/README.md)
+
 - [Скрипты](scripts/README.md)
