@@ -1,0 +1,26 @@
+export const themeConfig = {
+  colors: {
+    primary: 'hsl(var(--primary))',
+    primaryForeground: 'hsl(var(--primary-foreground))',
+    secondary: 'hsl(var(--secondary))',
+    secondaryForeground: 'hsl(var(--secondary-foreground))',
+    muted: 'hsl(var(--muted))',
+    mutedForeground: 'hsl(var(--muted-foreground))',
+    accent: 'hsl(var(--accent))',
+    accentForeground: 'hsl(var(--accent-foreground))',
+    destructive: 'hsl(var(--destructive))',
+    destructiveForeground: 'hsl(var(--destructive-foreground))',
+    border: 'hsl(var(--border))',
+    input: 'hsl(var(--input))',
+    ring: 'hsl(var(--ring))',
+    background: 'hsl(var(--background))',
+    foreground: 'hsl(var(--foreground))',
+  },
+  breakpoints: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+  },
+} as const;

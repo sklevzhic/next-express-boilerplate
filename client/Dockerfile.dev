@@ -1,0 +1,20 @@
+# Use Node.js 20 Alpine as base image
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start development server with hot reload
+CMD ["sh", "-c", "npm run dev -- --port 3000"]

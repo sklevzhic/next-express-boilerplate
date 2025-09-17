@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database (commented out - using SQLite instead)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: ferc-story-postgres
+  #   environment:
+  #     POSTGRES_DB: ferc_story
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - ferc-story-network
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres -d ferc_story"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # Backend Server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: ferc-story-server
+    env_file:
+      - docker-compose.prod.env
+    ports:
+      - "3001:3001"
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy
+    networks:
+      - ferc-story-network
+    restart: unless-stopped
+
+  # Frontend Client
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: ferc-story-client
+    env_file:
+      - docker-compose.prod.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    networks:
+      - ferc-story-network
+    restart: unless-stopped
+
+# volumes:
+#   postgres_data:
+
+networks:
+  ferc-story-network:
+    driver: bridge
