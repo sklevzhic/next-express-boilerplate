@@ -4,10 +4,7 @@ Full-stack приложение на TypeScript с Next.js и Express.js.
 
 Demo
 
-
-https://github.com/user-attachments/assets/080040c2-4b3e-4372-ae21-50e35446e3f3
-
-
+https://github.com/user-attachments/assets/00bf23f7-000b-411a-93f9-f187786b8a06
 
 ## 🚀 Быстрый старт
 
@@ -58,4 +55,5 @@ FERCStroy/
 - [Backend README](server/README.md)
 
 - [Скрипты](scripts/README.md)
+
 
